@@ -12,10 +12,18 @@
   },
   "routes": [
     {
+      "route": "/.auth/*",
+      "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
       "route": "/*",
       "allowedRoles": ["authenticated"]
     }
   ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/.auth/*", "/*.{css,js,png,jpg,svg,ico}"]
+  },
   "responseOverrides": {
     "401": {
       "statusCode": 302,
