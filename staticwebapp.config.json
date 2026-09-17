@@ -1,0 +1,29 @@
+{
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/829133a7-3ac1-464f-88b3-9991d1e55248>/v2.0",
+          "clientIdSettingName": "ffa525f9-2118-4c26-8513-02d9ceb91878",
+          "clientSecretSettingName": "64b07dc5-ba2e-4b82-91ca-3f35a2fefc99"
+        }
+      }
+    }
+  },
+  "routes": [
+    {
+      "route": "/.auth/login/github",
+      "statusCode": 404
+    },
+    {
+      "route": "/*",
+      "allowedRoles": ["authenticated"]
+    }
+  ],
+  "responseOverrides": {
+    "401": {
+      "statusCode": 302,
+      "redirect": "/.auth/login/aad"
+    }
+  }
+}
