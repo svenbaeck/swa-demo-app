@@ -29,5 +29,10 @@
       "statusCode": 302,
       "redirect": "/.auth/login/aad"
     }
+  },
+  "forwardingGateway": {
+    "allowedForwardedHosts": [
+      "swademo.contosospace.com"
+    ]
   }
 }
